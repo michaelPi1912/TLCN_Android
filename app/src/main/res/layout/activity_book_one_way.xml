@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".BookOneWayActivity">
+
+    <LinearLayout
+        android:id="@+id/linearbookoneway"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="1dp"
+        android:background="#00BFA5"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/btnbackhome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_weight="0.75"
+            android:background="@android:color/transparent"
+            android:drawableLeft="@drawable/ic_baseline_home_24" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.25"
+            android:text="       Đặt vé máy bay"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="1dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearbookoneway"
+        android:padding="30dp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Điền thông tin đặt vé"
+            android:textSize="26dp"
+            android:textStyle="bold"
+            android:gravity="center"/>
+        <EditText
+            android:id="@+id/edtbookname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Họ và tên" />
+        <EditText
+            android:id="@+id/edtbookcmnd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="số CMND/CCCD"
+            android:inputType="number"/>
+        <EditText
+            android:id="@+id/bookphone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="số điện thoại"
+            android:inputType="number"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Số lượng vé"
+            android:textSize="20dp"
+            android:textColor="@color/black"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="109dp"
+                android:layout_height="wrap_content"
+                android:text="Vé người lớn :"
+                android:layout_weight="0.5"
+                android:textSize="16dp" />
+
+            <EditText
+                android:id="@+id/edtvenguoilon"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="20dp"
+                android:layout_weight="0.25"
+                android:gravity="center"
+                android:inputType="number"
+                android:text="1" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.25"
+                android:hint="(từ 12 tuổi)"
+                android:textSize="16dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="21dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:text="Vé trẻ em :"
+                android:textSize="16dp" />
+
+            <EditText
+                android:id="@+id/vetreem"
+                android:layout_width="36dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.25"
+                android:layout_marginRight="12dp"
+                android:gravity="center"
+                android:text="0"
+                android:inputType="number"/>
+            <TextView
+                android:layout_width="21dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.35"
+                android:hint="(từ 2-11 tuổi)"
+                android:textSize="16dp" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="21dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:text="Vé em bé :"
+                android:textSize="16dp" />
+
+            <EditText
+                android:id="@+id/edtveembe"
+                android:layout_width="36dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.25"
+                android:layout_marginRight="16dp"
+                android:gravity="center"
+                android:text = "0"
+                android:inputType="number"/>
+            <TextView
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.25"
+                android:hint="(dưới 2 tuổi )"
+                android:textSize="16dp" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnbookticket"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="#D50000"
+            android:text="Đặt vé" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnzalopay"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:drawableLeft="@drawable/zalopay1"
+            android:backgroundTint="#2962FF"
+            android:text="Đặt vé và Thanh toán Bằng zaloPay"
+            android:textColor="@color/white"/>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

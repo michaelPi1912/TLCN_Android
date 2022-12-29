@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+    <TextView
+        android:id="@+id/TV1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Họ và Tên:"
+        android:textSize="20dp"
+        android:textColor="@color/black"
+        android:textStyle="bold"/>
+    <EditText
+        android:id="@+id/edit_fullname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/TV1"
+        android:hint="Nguyen Van A"/>
+    <TextView
+        android:id="@+id/TV2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edit_fullname"
+        android:text="Ngày Sinh:"
+        android:textSize="20dp"
+        android:textColor="@color/black"
+        android:textStyle="bold"/>
+    <EditText
+        android:id="@+id/edit_bob"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/TV2"
+        android:hint="Ngày sinh"
+        android:clickable="false"
+        android:cursorVisible="false"
+        android:focusable="false"
+        android:focusableInTouchMode="false"/>
+    <TextView
+        android:id="@+id/TV3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edit_bob"
+        android:text="Giới Tính:"
+        android:textSize="20dp"
+        android:textColor="@color/black"
+        android:textStyle="bold"/>
+    <Spinner
+        android:id="@+id/SpinerGender"
+        android:layout_width="match_parent"
+        android:layout_height="30sp"
+        android:layout_below="@+id/TV3"
+        />
+</RelativeLayout>

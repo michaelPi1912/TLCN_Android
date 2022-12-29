@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+    <!--<TextView
+        android:id="@+id/TV1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Chọn Điểm Khởi Hành:"
+        android:textSize="20dp"
+        android:textColor="@color/black"
+        android:textStyle="bold"/>
+    <Spinner
+        android:id="@+id/SpinnerFrom"
+        android:layout_width="match_parent"
+        android:layout_height="30sp"
+        android:layout_below="@+id/TV1"
+        />
+    <TextView
+        android:id="@+id/TV2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/SpinnerFrom"
+        android:text="Chọn Điểm Đến:"
+        android:textSize="20dp"
+        android:textColor="@color/black"
+        android:textStyle="bold"/>
+    <Spinner
+        android:id="@+id/SpinnerTo"
+        android:layout_width="match_parent"
+        android:layout_height="30sp"
+        android:layout_below="@+id/TV2"
+        />
+
+    <RadioGroup
+        android:id="@+id/linear_check"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/SpinnerTo"
+        android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/radioButton_oneway"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:text="Một Chiều"
+                android:checked="true"/>
+
+            <RadioButton
+                android:id="@+id/radioButton_roundtrip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:text="Khứ Hồi"
+                android:checked="false"/>
+
+    </RadioGroup>
+    <TextView
+        android:id="@+id/TV3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linear_check"
+        android:text="Ngày Khởi Hành:"
+        android:textSize="20dp"
+        android:textColor="@color/black"
+        android:textStyle="bold"/>
+    <EditText
+        android:id="@+id/edtView_DateStart"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/TV3"
+        android:hint="Chọn Ngày Khởi Hành"
+        android:clickable="false"
+        android:cursorVisible="false"
+        android:focusable="false"
+        android:focusableInTouchMode="false"/>
+
+    <TextView
+        android:id="@+id/TV4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edtView_DateStart"
+        android:text="Ngày Về:"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+    <EditText
+        android:id="@+id/edtView_DateBack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/TV4"
+        android:hint="Chọn ngày về"
+        android:clickable="false"
+        android:cursorVisible="false"
+        android:focusable="false"
+        android:focusableInTouchMode="false"/>-->
+
+</RelativeLayout>

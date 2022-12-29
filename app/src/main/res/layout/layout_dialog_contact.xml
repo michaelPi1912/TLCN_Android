@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+    <TextView
+        android:id="@+id/TV1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Email:"
+        android:textSize="20dp"
+        android:textColor="@color/black"
+        android:textStyle="bold"/>
+    <EditText
+        android:id="@+id/edit_contact_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/TV1"
+        android:hint="email@gmail.com"
+        android:inputType="textEmailAddress"/>
+    <TextView
+        android:id="@+id/TV2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edit_contact_email"
+        android:text="Số điện thoại:"
+        android:textSize="20dp"
+        android:textColor="@color/black"
+        android:textStyle="bold"/>
+    <EditText
+        android:id="@+id/edit_edit_phone_number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/TV2"
+        android:hint="098xxxxxxxx"
+        android:inputType="number"/>
+
+</RelativeLayout>

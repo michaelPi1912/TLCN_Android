@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_home"
+        android:icon="@drawable/ic_baseline_home_24"
+        android:title="Trang chủ"/>
+    <item
+        android:id="@+id/nav_ticket"
+        android:icon="@drawable/ic_baseline_airplane_ticket_24"
+        android:title="Vé máy bay"/>
+    <item
+        android:id="@+id/nav_notice"
+        android:icon="@drawable/ic_baseline_notifications_none_24"
+        android:title="Thông báo"/>
+    <item
+        android:id="@+id/nav_account"
+        android:icon="@drawable/ic_baseline_person_24"
+        android:title="Tài khoản"/>
+</menu>
