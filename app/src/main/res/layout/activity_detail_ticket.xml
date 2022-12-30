@@ -17,14 +17,15 @@
         app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="#AC9595">
 
         <TextView
             android:id="@+id/tv_airline"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Chi tiet chuyen bay"
+            android:text="Chi tiết vé máy bay"
             android:textColor="#000000"
             android:textSize="20dp"
             android:textStyle="bold" />
@@ -69,10 +70,9 @@
 
         <TextView
             android:id="@+id/tv_detailtime"
-            android:layout_width="137dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:layout_weight="0.5"
             android:gravity="left"
             android:text="Thời gian bay:"
             android:textColor="#000000"
@@ -83,15 +83,50 @@
     <LinearLayout
         android:id="@+id/linearLayout3"
         android:layout_width="377dp"
-        android:layout_height="574dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="13dp"
         android:layout_marginEnd="13dp"
+        android:layout_marginTop="5dp"
         android:orientation="vertical"
         android:padding="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.333"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"></LinearLayout>
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+        android:background="#8195A1">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:text="Quyền Lợi và giá hành lý :"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            android:text="Hoàn lại tiền được áp dụng vì (các) lý do sau:\n
+            + Tự hủy (thay đổi kế hoạch).\n
+            + Bất khả kháng / các hạn chế của chính\n
+            phủ liên quan đến COVID-19.\n
+            + Hãng hàng không hủy chuyến bay.\n
+            + Hãng hàng không dời lịch của chuyến \n
+            bay."
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            android:text="Giá hành lý (Mỗi khách)\n
+            + Hành lý xách tay 7 kg Miễn phí\n
+            + 20 kg hành lý 546.000 VND\n
+            + 30 kg hành lý1.102.500 VND\n
+            + 40 kg hành lý1.470.000 VND"
+            />
+    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

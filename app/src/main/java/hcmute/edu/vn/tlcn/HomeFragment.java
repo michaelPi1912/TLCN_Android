@@ -202,7 +202,7 @@ public class HomeFragment extends Fragment {
     }
 
     private void initSpinner(Spinner dropdown) {
-        String[] items = new String[]{"Hà Nội", "TP.HCM",};
+        String[] items = new String[]{"Hà Nội", "TP.HCM", "Hải Phòng", "Vinh", "Nha Trang", "Đà Nẵng", "Phú Quốc", "Cần Thơ", "Huế"};
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_dropdown_item, items);
         dropdown.setAdapter(adapter);
         dropdown.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {

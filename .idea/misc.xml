@@ -11,11 +11,11 @@
         <entry key="..\:/Users/phuc/AndroidStudioProjects/TLCN/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2005" />
         <entry key="..\:/Users/phuc/AndroidStudioProjects/TLCN/app/src/main/res/drawable/layout_with_shadow.xml" value="0.1515" />
         <entry key="..\:/Users/phuc/AndroidStudioProjects/TLCN/app/src/main/res/layout/activity_book_one_way.xml" value="0.25" />
-        <entry key="..\:/Users/phuc/AndroidStudioProjects/TLCN/app/src/main/res/layout/activity_detail_ticket.xml" value="0.25" />
+        <entry key="..\:/Users/phuc/AndroidStudioProjects/TLCN/app/src/main/res/layout/activity_detail_ticket.xml" value="0.264" />
         <entry key="..\:/Users/phuc/AndroidStudioProjects/TLCN/app/src/main/res/layout/activity_home.xml" value="0.25" />
         <entry key="..\:/Users/phuc/AndroidStudioProjects/TLCN/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/phuc/AndroidStudioProjects/TLCN/app/src/main/res/layout/activity_oneway.xml" value="0.25" />
-        <entry key="..\:/Users/phuc/AndroidStudioProjects/TLCN/app/src/main/res/layout/activity_register.xml" value="0.25" />
+        <entry key="..\:/Users/phuc/AndroidStudioProjects/TLCN/app/src/main/res/layout/activity_register.xml" value="0.264" />
         <entry key="..\:/Users/phuc/AndroidStudioProjects/TLCN/app/src/main/res/layout/fragment_account.xml" value="0.25" />
         <entry key="..\:/Users/phuc/AndroidStudioProjects/TLCN/app/src/main/res/layout/fragment_home.xml" value="0.25" />
         <entry key="..\:/Users/phuc/AndroidStudioProjects/TLCN/app/src/main/res/layout/fragment_notice.xml" value="0.25" />
@@ -36,5 +36,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.264" />
+      </ProjectState>
+    </option>
   </component>
 </project>

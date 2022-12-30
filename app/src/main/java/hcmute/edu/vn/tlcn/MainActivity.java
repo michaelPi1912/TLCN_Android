@@ -51,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
                         Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
                         intent.putExtras(bundle);
                         startActivity(intent);
+                        finish();
                     }else {
                         Toast.makeText(MainActivity.this, "Đăng nhập thất bại", Toast.LENGTH_SHORT).show();
                     }

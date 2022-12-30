@@ -3,8 +3,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="10dp">
-
+    <TextView
+        android:id="@+id/tvv1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Danh sách vé"
+        android:background="@color/teal_200"
+        android:gravity="center"
+        android:textSize="24dp"
+        android:textStyle="bold"/>
     <ListView
+        android:layout_below="@+id/tvv1"
+        android:layout_marginTop="5dp"
         android:id="@+id/lv_book"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
