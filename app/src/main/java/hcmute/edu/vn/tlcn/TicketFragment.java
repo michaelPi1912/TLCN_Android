@@ -46,7 +46,7 @@ public class TicketFragment extends Fragment {
             id = -1;
         }
 
-        Toast.makeText(getActivity(), String.valueOf(id), Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getActivity(), String.valueOf(id), Toast.LENGTH_SHORT).show();
 
 
 

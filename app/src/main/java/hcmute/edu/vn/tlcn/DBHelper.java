@@ -230,7 +230,7 @@ public class DBHelper extends SQLiteOpenHelper {
         SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
         Cursor cursor =  sqLiteDatabase.rawQuery("Select bookings.startpoint, bookings.endpoint, bookings.date, bookings.time, bookings.type,  bookings.hangbay \n" +
                 "from bookings INNER JOIN  (Select * from infors where infors.uid = ?) as ifs\n" +
-                "on bookings.Iid = ifs.id ORDER BY bookings.date, bookings.time DESC", new String[]{String.valueOf(uid)});
+                "on bookings.Iid = ifs.id ORDER BY bookings.id DESC", new String[]{String.valueOf(uid)});
         if (cursor != null && cursor.moveToFirst()) {
             return cursor;
         } else {
@@ -255,7 +255,7 @@ public class DBHelper extends SQLiteOpenHelper {
     }
     public Cursor getNoticebyUID(Integer uid){
         SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
-        Cursor cursor =  sqLiteDatabase.rawQuery("Select content, day, time from "+ NOTICE_TABLE +" where uid = ? ORDER BY day,time DESC", new String[]{String.valueOf(uid)});
+        Cursor cursor =  sqLiteDatabase.rawQuery("Select * from "+ NOTICE_TABLE +" where uid = ? ORDER BY id DESC", new String[]{String.valueOf(uid)});
         if (cursor != null && cursor.moveToFirst()) {
             return cursor;
         } else {

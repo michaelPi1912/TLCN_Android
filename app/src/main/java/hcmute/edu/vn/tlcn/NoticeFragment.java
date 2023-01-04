@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -19,18 +20,17 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
+import hcmute.edu.vn.tlcn.Models.Book;
 import hcmute.edu.vn.tlcn.Models.Notice;
 import hcmute.edu.vn.tlcn.Models.NoticeDB;
 import hcmute.edu.vn.tlcn.adapter.NoticeAdapter;
 
 public class NoticeFragment extends Fragment {
 
-    RecyclerView rcvNotice;
+    ListView listViewNotice;
     DBHelper mydb;
     NoticeAdapter noticeAdapter;
-    List<Notice> mListNotice;
     SQLiteDatabase mdb;
-    Button btnRefresh;
 
     @Nullable
     @Override
@@ -38,31 +38,34 @@ public class NoticeFragment extends Fragment {
         View view= inflater.inflate(R.layout.fragment_notice, container, false);
 
         mydb = new DBHelper(getActivity());
-
         mdb = mydb.getWritableDatabase();
-        mListNotice = new ArrayList<>();
 
-        rcvNotice =(RecyclerView) view.findViewById(R.id.rcv_notices);
-        btnRefresh =(Button) view.findViewById(R.id.btn_refreshnotice);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
-        rcvNotice.setLayoutManager(linearLayoutManager);
+        listViewNotice = view.findViewById(R.id.lv_notices);
+        List<Notice> mListNotice = new ArrayList<>();
 
-        DividerItemDecoration itemDecoration = new DividerItemDecoration(getActivity(), DividerItemDecoration.VERTICAL);
-        rcvNotice.addItemDecoration(itemDecoration);
+        int id =0;
+        try{
+            Bundle extras = getActivity().getIntent().getExtras();
+            id = extras.getInt("my_key");
+        }catch (Exception ex){
+            id = -1;
+        }
 
-        noticeAdapter = new NoticeAdapter(getActivity(), getAllNotice());
-        rcvNotice.setAdapter(noticeAdapter);
-        btnRefresh.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                addData();
+        Cursor cursor = mydb.getNoticebyUID(id);
+
+        if(cursor !=null) {
+            for (cursor.moveToFirst(); !cursor.isAfterLast(); cursor.moveToNext()) {
+                mListNotice.add(new Notice(cursor.getString(2), cursor.getString(3), cursor.getString(4)));
             }
-        });
+        }
+
+        noticeAdapter = new NoticeAdapter(getActivity(), mListNotice);
+        listViewNotice.setAdapter(noticeAdapter);
 
         return view;
     }
 
-    private void addData(){
+    /*private void addData(){
         String date = "", time ="";
         int id =0;
         try{
@@ -81,7 +84,7 @@ public class NoticeFragment extends Fragment {
             Toast.makeText(getActivity(), "Hệ thống bị lỗi thông báo", Toast.LENGTH_SHORT).show();
         }
         noticeAdapter.swapCursor(getAllNotice());
-    }
+    }*/
     public int getUID(){
         int id =0;
         try{
@@ -100,6 +103,7 @@ public class NoticeFragment extends Fragment {
         }catch (Exception ex){
             id = -1;
         }
+        Toast.makeText(getActivity(), String.valueOf(id), Toast.LENGTH_SHORT).show();
         return mdb.query(NoticeDB.NoticeEntry.TABLE_NAME, null, NoticeDB.NoticeEntry.COLUMN_UID+"="+String.valueOf(id),
                 null,
                 null,

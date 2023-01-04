@@ -108,7 +108,7 @@ public class BookOneWayActivity extends AppCompatActivity {
                             String minute = String.valueOf(now.getMinute());
                             String date = day+"/"+month+"/"+year;
                             String time = hour+":"+minute;
-                            /*Boolean rsN = mydb.insertNotice("Bạn đã đặt vé thành công", day+"/"+month+"/"+year, hour+":"+minute, uid);
+                            Boolean rsN = mydb.insertNotice("Bạn đã đặt vé thành công", day+"/"+month+"/"+year, hour+":"+minute, uid);
                             if(rsN == true){
                                 Toast.makeText(BookOneWayActivity.this, "Đặt vé thành công", Toast.LENGTH_SHORT).show();
                                 NoticeFragment noticeFragment = new NoticeFragment();
@@ -118,7 +118,6 @@ public class BookOneWayActivity extends AppCompatActivity {
                             }else {
                                 Toast.makeText(BookOneWayActivity.this, "Hệ thống bị lỗi thông báo", Toast.LENGTH_SHORT).show();
                             }
-                             */
                             Bundle bundle1 = new Bundle();
                             bundle1.putString("date", date);
                             bundle1.putString("time", time);
@@ -128,6 +127,7 @@ public class BookOneWayActivity extends AppCompatActivity {
                             Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
                             intent.putExtras(bundle1);
                             startActivity(intent);
+                            finish();
                         }
                     }else {
                         Toast.makeText(BookOneWayActivity.this, "Hệ thống lỗi, đặt vé thất bại", Toast.LENGTH_SHORT).show();
@@ -138,6 +138,7 @@ public class BookOneWayActivity extends AppCompatActivity {
 
         //zalo pay
         btnZaloPay.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View v) {
 
@@ -156,6 +157,21 @@ public class BookOneWayActivity extends AppCompatActivity {
                                 , ticket.getType(), edtType1.getText().toString(), edtType2.getText().toString(), edtType3.getText().toString(), ticket.getAirline());
 
                         if (rs == true) {
+                            //
+                            LocalDateTime now = LocalDateTime.now();
+                            String year = String.valueOf(now.getYear());
+                            String month = String.valueOf(now.getMonthValue());
+                            String day = String.valueOf(now.getDayOfMonth());
+                            String hour = String.valueOf(now.getHour());
+                            String minute = String.valueOf(now.getMinute());
+                            String date = day+"/"+month+"/"+year;
+                            String time = hour+":"+minute;
+                            Boolean rsN = mydb.insertNotice("Bạn đã đặt vé thành công", day+"/"+month+"/"+year, hour+":"+minute, uid);
+                            if(rsN == true){
+                                Toast.makeText(BookOneWayActivity.this, "1", Toast.LENGTH_SHORT).show();
+                            }else {
+                                Toast.makeText(BookOneWayActivity.this, "Hệ thống bị lỗi thông báo", Toast.LENGTH_SHORT).show();
+                            }
                             CreateOrder orderApi = new CreateOrder();
                             try {
                                 JSONObject data = orderApi.createOrder("100000");
@@ -163,25 +179,58 @@ public class BookOneWayActivity extends AppCompatActivity {
 
                                 if (code.equals("1")) {
                                     String token = data.getString("zp_trans_token");
-
                                     ZaloPaySDK.getInstance().payOrder(BookOneWayActivity.this, token, "demozpdk://app", new PayOrderListener() {
                                         @Override
-                                        public void onPaymentSucceeded(String s, String s1, String s2) {
-                                            Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
-                                            startActivity(intent);
+                                        public void onPaymentSucceeded(final String transactionId, final String transToken, final String appTransID) {
+                                            runOnUiThread(new Runnable() {
+                                                @Override
+                                                public void run() {
+                                                    new AlertDialog.Builder(BookOneWayActivity.this)
+                                                            .setTitle("Payment Success")
+                                                            .setMessage(String.format("TransactionId: %s - TransToken: %s", transactionId, transToken))
+                                                            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                                                @Override
+                                                                public void onClick(DialogInterface dialog, int which) {
+                                                                    Toast.makeText(BookOneWayActivity.this, "Thanh toán thành công", Toast.LENGTH_SHORT).show();
+                                                                    Intent intent = new Intent(BookOneWayActivity.this, HomeActivity.class);
+                                                                    startActivity(intent);
+                                                                    finish();
+                                                                }
+                                                            })
+                                                            .setNegativeButton("Cancel", null).show();
+                                                }
+
+                                            });
                                         }
 
                                         @Override
-                                        public void onPaymentCanceled(String s, String s1) {
-
+                                        public void onPaymentCanceled(String zpTransToken, String appTransID) {
+                                            new AlertDialog.Builder(BookOneWayActivity.this)
+                                                    .setTitle("User Cancel Payment")
+                                                    .setMessage(String.format("zpTransToken: %s \n", zpTransToken))
+                                                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                                        @Override
+                                                        public void onClick(DialogInterface dialog, int which) {
+                                                        }
+                                                    })
+                                                    .setNegativeButton("Cancel", null).show();
                                         }
 
                                         @Override
-                                        public void onPaymentError(ZaloPayError zaloPayError, String s, String s1) {
-
+                                        public void onPaymentError(ZaloPayError zaloPayError, String zpTransToken, String appTransID) {
+                                            new AlertDialog.Builder(BookOneWayActivity.this)
+                                                    .setTitle("Payment Fail")
+                                                    .setMessage(String.format("ZaloPayErrorCode: %s \nTransToken: %s", zaloPayError.toString(), zpTransToken))
+                                                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                                        @Override
+                                                        public void onClick(DialogInterface dialog, int which) {
+                                                        }
+                                                    })
+                                                    .setNegativeButton("Cancel", null).show();
                                         }
                                     });
                                 }
+
                             } catch (Exception e) {
                                 e.printStackTrace();
                             }
